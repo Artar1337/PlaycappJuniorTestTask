@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 9128945523263008195}
   - component: {fileID: -2605788714715393193}
   - component: {fileID: 4456436638392071428}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,4 +316,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settingsPopup: {fileID: 6233085002222142853}
-  throwDirection: {x: 0, y: 0, z: 0}
+  throwDirection: {x: 0, y: 0, z: 1}
