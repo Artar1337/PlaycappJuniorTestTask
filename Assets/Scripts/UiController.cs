@@ -29,6 +29,8 @@ public class UiController : MonoBehaviour
     private InputField distanceInput;
     [SerializeField]
     private Toggle autoSpawn;
+    [SerializeField]
+    private CubeSpawner cubeSpawner;
 
     private InputValidator speedValidator;
     private InputValidator timeValidator;
@@ -55,7 +57,11 @@ public class UiController : MonoBehaviour
     public bool IsAutoSpawning
     {
         get => autoSpawn.isOn;
-        set => autoSpawn.isOn = value;
+        set
+        {
+            autoSpawn.isOn = value;
+            cubeSpawner.SetSpawnMode();
+        }
     }
     
     private void Start()

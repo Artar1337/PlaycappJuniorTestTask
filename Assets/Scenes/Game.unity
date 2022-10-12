@@ -172,6 +172,7 @@ MonoBehaviour:
   timeInput: {fileID: 801799382}
   distanceInput: {fileID: 2112867433}
   autoSpawn: {fileID: 1202194926}
+  cubeSpawner: {fileID: 1848329486}
 --- !u!1 &339461194
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,7 +927,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.1344606, y: -0, z: -0, w: 0.99091893}
-  m_LocalPosition: {x: -0.363, y: 3.83, z: -11.68}
+  m_LocalPosition: {x: -0.363, y: 4.7, z: -11.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1789,7 +1790,19 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 41871398}
+        m_TargetAssemblyTypeName: UiController, Assembly-CSharp
+        m_MethodName: set_IsAutoSpawning
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!114 &1286581172 stripped
 MonoBehaviour:

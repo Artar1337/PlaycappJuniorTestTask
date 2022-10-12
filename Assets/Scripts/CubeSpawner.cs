@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 /// <summary>
@@ -35,5 +36,36 @@ public class CubeSpawner : MonoBehaviour
             Random.Range(yPositionRange.x, yPositionRange.y),
             Random.Range(zPositionRange.x, zPositionRange.y));
         Instantiate(cube, position, Quaternion.identity, transform);
+    }
+
+    /// <summary>
+    /// Включает/выключает корутину спавна кубов
+    /// </summary>
+    public void SetSpawnMode()
+    {
+        if (UiController.instance.IsAutoSpawning)
+        {
+            StartCoroutine(SpawnCoroutine());
+            return;
+        }
+        StopAllCoroutines();
+    }
+
+    /// <summary>
+    /// Корутина для постоянного спавна кубов
+    /// </summary>
+    /// <returns>Ждет указанное в UI время</returns>
+    public IEnumerator SpawnCoroutine()
+    {
+        while (UiController.instance.IsAutoSpawning)
+        {
+            yield return new WaitForSeconds(UiController.instance.SpawnTime);
+            SpawnCube();
+        }
+    }
+
+    public void OnEnable()
+    {
+        SetSpawnMode();
     }
 }
