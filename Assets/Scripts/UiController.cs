@@ -1,9 +1,9 @@
-using UnityEngine;
+п»їusing UnityEngine;
 using System;
 using UnityEngine.UI;
 
 /// <summary>
-/// Контроллер взаимодействия с UI
+/// РљРѕРЅС‚СЂРѕР»Р»РµСЂ РІР·Р°РёРјРѕРґРµР№СЃС‚РІРёСЏ СЃ UI
 /// </summary>
 public class UiController : MonoBehaviour
 {
@@ -72,10 +72,10 @@ public class UiController : MonoBehaviour
     }
 
     /// <summary>
-    /// Возвращает обработанное значение из текстового поля
+    /// Р’РѕР·РІСЂР°С‰Р°РµС‚ РѕР±СЂР°Р±РѕС‚Р°РЅРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РёР· С‚РµРєСЃС‚РѕРІРѕРіРѕ РїРѕР»СЏ
     /// </summary>
-    /// <param name="field">Текстовое поле</param>
-    /// <param name="validator">Валидатор поля</param>
+    /// <param name="field">РўРµРєСЃС‚РѕРІРѕРµ РїРѕР»Рµ</param>
+    /// <param name="validator">Р’Р°Р»РёРґР°С‚РѕСЂ РїРѕР»СЏ</param>
     /// <returns></returns>
     private float GetValidatedValue(InputField field, InputValidator validator)
     {

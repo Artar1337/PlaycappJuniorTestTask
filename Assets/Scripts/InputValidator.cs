@@ -1,15 +1,15 @@
-using UnityEngine;
+п»їusing UnityEngine;
 using UnityEngine.UI;
 using System;
 
 /// <summary>
-/// Валидатор диапазона для float InputField
+/// Р’Р°Р»РёРґР°С‚РѕСЂ РґРёР°РїР°Р·РѕРЅР° РґР»СЏ float InputField
 /// </summary>
 [RequireComponent(typeof(InputField))]
 public class InputValidator : MonoBehaviour
 {
     /// <summary>
-    /// Диапазон значений, X - минимальное, Y - максимальное
+    /// Р”РёР°РїР°Р·РѕРЅ Р·РЅР°С‡РµРЅРёР№, X - РјРёРЅРёРјР°Р»СЊРЅРѕРµ, Y - РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ
     /// </summary>
     [SerializeField]
     private Vector2 valuesRange;
@@ -24,7 +24,7 @@ public class InputValidator : MonoBehaviour
     }
 
     /// <summary>
-    /// Проверка значения в инпуте - если не соответствует, ставим по умолчанию
+    /// РџСЂРѕРІРµСЂРєР° Р·РЅР°С‡РµРЅРёСЏ РІ РёРЅРїСѓС‚Рµ - РµСЃР»Рё РЅРµ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓРµС‚, СЃС‚Р°РІРёРј РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
     /// </summary>
     public void ValidateRange()
     {

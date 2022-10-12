@@ -1,8 +1,8 @@
-using System.Collections;
+п»їusing System.Collections;
 using UnityEngine;
 
 /// <summary>
-/// Отвечает за поведение куба
+/// РћС‚РІРµС‡Р°РµС‚ Р·Р° РїРѕРІРµРґРµРЅРёРµ РєСѓР±Р°
 /// </summary>
 [RequireComponent(typeof(Rigidbody))]
 public class CubeBehaviour : MonoBehaviour
@@ -11,7 +11,7 @@ public class CubeBehaviour : MonoBehaviour
     private const string DESTROYINGLAYERNAME = "DestroyZone";
 
     /// <summary>
-    /// Направление движения куба
+    /// РќР°РїСЂР°РІР»РµРЅРёРµ РґРІРёР¶РµРЅРёСЏ РєСѓР±Р°
     /// </summary>
     [SerializeField]
     private Vector3 throwDirection;
@@ -32,7 +32,7 @@ public class CubeBehaviour : MonoBehaviour
     }
 
     /// <summary>
-    /// Бросает кубик на определенное расстояние с определенной скоростью
+    /// Р‘СЂРѕСЃР°РµС‚ РєСѓР±РёРє РЅР° РѕРїСЂРµРґРµР»РµРЅРЅРѕРµ СЂР°СЃСЃС‚РѕСЏРЅРёРµ СЃ РѕРїСЂРµРґРµР»РµРЅРЅРѕР№ СЃРєРѕСЂРѕСЃС‚СЊСЋ
     /// </summary>
     public void ThrowCube()
     {
@@ -45,9 +45,9 @@ public class CubeBehaviour : MonoBehaviour
     }
 
     /// <summary>
-    /// Передвигает кубик, если было достигнуто нужное расстояние - уничтожает
+    /// РџРµСЂРµРґРІРёРіР°РµС‚ РєСѓР±РёРє, РµСЃР»Рё Р±С‹Р»Рѕ РґРѕСЃС‚РёРіРЅСѓС‚Рѕ РЅСѓР¶РЅРѕРµ СЂР°СЃСЃС‚РѕСЏРЅРёРµ - СѓРЅРёС‡С‚РѕР¶Р°РµС‚
     /// </summary>
-    /// <returns>Ожидает конца каждого FixedUpdate</returns>
+    /// <returns>РћР¶РёРґР°РµС‚ РєРѕРЅС†Р° РєР°Р¶РґРѕРіРѕ FixedUpdate</returns>
     private IEnumerator MoveCoroutine()
     {
         Vector3 speedVector = throwDirection * speedMultiplier;
@@ -63,9 +63,9 @@ public class CubeBehaviour : MonoBehaviour
     }
 
     /// <summary>
-    /// При контакте с поверхностью (кроме кубов) запускаем куб вперед, если опция активна
+    /// РџСЂРё РєРѕРЅС‚Р°РєС‚Рµ СЃ РїРѕРІРµСЂС…РЅРѕСЃС‚СЊСЋ (РєСЂРѕРјРµ РєСѓР±РѕРІ) Р·Р°РїСѓСЃРєР°РµРј РєСѓР± РІРїРµСЂРµРґ, РµСЃР»Рё РѕРїС†РёСЏ Р°РєС‚РёРІРЅР°
     /// </summary>
-    /// <param name="collision">Коллизия</param>
+    /// <param name="collision">РљРѕР»Р»РёР·РёСЏ</param>
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer == destroyZoneLayerMask)
