@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 
@@ -12,18 +11,12 @@ public class CubeBehaviour : MonoBehaviour
     private const string DESTROYINGLAYERNAME = "DestroyZone";
 
     /// <summary>
-    /// Префаб попапа с настройками
-    /// </summary>
-    [SerializeField]
-    private GameObject settingsPopup;
-    /// <summary>
     /// Направление движения куба
     /// </summary>
     [SerializeField]
     private Vector3 throwDirection;
 
     private bool isCubeStartedMoving = false;
-    private bool isCubeLanded = false;
     private float speedMultiplier = 1f;
     private float distance = 1f;
     private float currentDistance = 0f;
@@ -36,19 +29,6 @@ public class CubeBehaviour : MonoBehaviour
         destroyZoneLayerMask = LayerMask.NameToLayer(DESTROYINGLAYERNAME);
         speedMultiplier = UiController.instance.Speed;
         distance = UiController.instance.Distance;
-    }
-
-    /// <summary>
-    /// Изменяет состояние активности popup с настройками при клике на кубик
-    /// </summary>
-    private void OnMouseDown()
-    {
-        if (isCubeStartedMoving || !isCubeLanded)
-        {
-            settingsPopup.SetActive(false);
-            return;
-        }
-        settingsPopup.SetActive(!settingsPopup.activeInHierarchy);
     }
 
     /// <summary>
@@ -88,10 +68,9 @@ public class CubeBehaviour : MonoBehaviour
     /// <param name="collision">Коллизия</param>
     private void OnCollisionEnter(Collision collision)
     {
-        isCubeLanded = true;
-        if (UiController.instance.IsAutoLaunching && cubeLayerMask != collision.gameObject.layer)
-            ThrowCube();
         if (collision.gameObject.layer == destroyZoneLayerMask)
             Destroy(gameObject);
+        else if (cubeLayerMask != collision.gameObject.layer)
+            ThrowCube(); 
     }
 }

@@ -362,6 +362,7 @@ GameObject:
   - component: {fileID: 2817238921508933069}
   - component: {fileID: 2817238921508933070}
   - component: {fileID: 2817238921508933071}
+  - component: {fileID: 6225131972278531982}
   m_Layer: 0
   m_Name: InputField
   m_TagString: Untagged
@@ -496,3 +497,17 @@ MonoBehaviour:
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_ShouldActivateOnSelect: 1
+--- !u!114 &6225131972278531982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2817238921508933065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ba910650baa8bf4f9bfb77ca9648f44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  valuesRange: {x: 0.01, y: 10}
+  defaultValue: 1

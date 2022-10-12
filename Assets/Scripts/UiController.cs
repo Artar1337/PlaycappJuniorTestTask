@@ -1,9 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
 
+/// <summary>
+/// Контроллер взаимодействия с UI
+/// </summary>
 public class UiController : MonoBehaviour
 {
     #region Singleton
@@ -28,24 +29,26 @@ public class UiController : MonoBehaviour
     private InputField distanceInput;
     [SerializeField]
     private Toggle autoSpawn;
-    [SerializeField]
-    private Toggle autoLaunch;
+
+    private InputValidator speedValidator;
+    private InputValidator timeValidator;
+    private InputValidator distanceValidator;
 
     public float Speed
     {
-        get => (float)Convert.ToDouble(speedInput.text.Replace('.', ','));
+        get => GetValidatedValue(speedInput, speedValidator);
         set => speedInput.text = value.ToString();
     }
 
     public float SpawnTime
     {
-        get => (float)Convert.ToDouble(timeInput.text.Replace('.', ','));
+        get => GetValidatedValue(timeInput, timeValidator); 
         set => timeInput.text = value.ToString();
     }
 
     public float Distance
     {
-        get => (float)Convert.ToDouble(distanceInput.text.Replace('.', ','));
+        get => GetValidatedValue(distanceInput, distanceValidator); 
         set => distanceInput.text = value.ToString();
     }
 
@@ -54,10 +57,23 @@ public class UiController : MonoBehaviour
         get => autoSpawn.isOn;
         set => autoSpawn.isOn = value;
     }
-
-    public bool IsAutoLaunching
+    
+    private void Start()
     {
-        get => autoLaunch.isOn;
-        set => autoLaunch.isOn = value;
+        speedValidator = speedInput.GetComponent<InputValidator>();
+        timeValidator = timeInput.GetComponent<InputValidator>();
+        distanceValidator = distanceInput.GetComponent<InputValidator>();
+    }
+
+    /// <summary>
+    /// Возвращает обработанное значение из текстового поля
+    /// </summary>
+    /// <param name="field">Текстовое поле</param>
+    /// <param name="validator">Валидатор поля</param>
+    /// <returns></returns>
+    private float GetValidatedValue(InputField field, InputValidator validator)
+    {
+        validator.ValidateRange();
+        return (float)Convert.ToDouble(field.text.Replace('.', ','));
     }
 }
