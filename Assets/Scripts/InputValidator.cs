@@ -28,7 +28,15 @@ public class InputValidator : MonoBehaviour
     /// </summary>
     public void ValidateRange()
     {
-        float current = (float)Convert.ToDouble(inputField.text.Replace('.', ','));
+        float current;
+        try 
+        { 
+            current = (float)Convert.ToDouble(inputField.text.Replace('.', ',')); 
+        }
+        catch (FormatException)
+        {
+            current = defaultValue;
+        }
         if (current > valuesRange.y || current < valuesRange.x)
             inputField.text = defaultValue.ToString().Replace(',', '.');
     }
